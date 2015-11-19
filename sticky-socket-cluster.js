@@ -39,8 +39,8 @@ module.exports = function pool(options, callback)
 
 	
 	options.workers = options.workers || process.env.WORKERS || require('os').cpus().length;
-	options.first_port = options.first_port || process.env.FIRST_PORT || 8000;
-	options.proxy_port = options.proxy_port || process.env.PROXY_PORT || 5000;
+	options.first_port = parseInt(options.first_port) || process.env.FIRST_PORT || 8000;
+	options.proxy_port = parseInt(options.proxy_port) || process.env.PROXY_PORT || 5000;
 	options.session_hash = options.session_hash || session_hash_ip;
 	options.no_sockets = options.no_sockets || false;
 	options.start_timeout = options.start_timeout || 3000;
